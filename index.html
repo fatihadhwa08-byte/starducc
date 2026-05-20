@@ -1,0 +1,1552 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Starducc Airlines</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Raleway:wght@300;400;500;600&family=Oswald:wght@600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/all.min.css">
+    <link rel="stylesheet" href="css/tailwind.css">
+    <link rel="stylesheet" href="css/tooplate-antique-cafe.css">
+
+    <style>
+        /* ===== HERO REDESIGN ===== */
+        #intro {
+            position: relative;
+            min-height: 100vh;
+        }
+
+        /* Cinematic overlay with diagonal gradient */
+        #intro::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(
+                135deg,
+                rgba(0,0,0,0.82) 0%,
+                rgba(10,20,40,0.65) 45%,
+                rgba(180,130,50,0.18) 100%
+            );
+            z-index: 1;
+        }
+
+        /* Animated shimmer line */
+        #intro::after {
+            content: '';
+            position: absolute;
+            left: 0; right: 0;
+            bottom: 0;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, #c9a84c, #f0d080, #c9a84c, transparent);
+            z-index: 3;
+            animation: shimmer 3s ease-in-out infinite;
+        }
+
+        @keyframes shimmer {
+            0%, 100% { opacity: 0.4; }
+            50% { opacity: 1; }
+        }
+
+        #intro > nav,
+        #intro > .container { position: relative; z-index: 2; }
+
+        /* ===== HERO CONTENT ===== */
+        .hero-wrapper {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            min-height: 100vh;
+            padding: 120px 24px 80px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            border: 1px solid rgba(201,168,76,0.5);
+            border-radius: 100px;
+            padding: 6px 18px;
+            font-family: 'Raleway', sans-serif;
+            font-size: 0.72rem;
+            letter-spacing: 0.25em;
+            text-transform: uppercase;
+            color: #c9a84c;
+            margin-bottom: 28px;
+            animation: fadeDown 0.8s ease both;
+            backdrop-filter: blur(4px);
+            background: rgba(201,168,76,0.07);
+        }
+
+        .hero-badge::before {
+            content: '';
+            width: 6px; height: 6px;
+            border-radius: 50%;
+            background: #c9a84c;
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.5; transform: scale(1.4); }
+        }
+
+        .hero-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(3.5rem, 8vw, 7rem);
+            font-weight: 300;
+            color: #ffffff;
+            line-height: 1.05;
+            letter-spacing: -0.01em;
+            margin-bottom: 8px;
+            animation: fadeUp 0.9s ease 0.1s both;
+        }
+
+        .hero-title .accent {
+            color: #c9a84c;
+            font-style: italic;
+            font-weight: 500;
+        }
+
+        .hero-subtitle {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(1.1rem, 2.5vw, 1.6rem);
+            font-weight: 300;
+            color: rgba(255,255,255,0.6);
+            letter-spacing: 0.08em;
+            margin-bottom: 36px;
+            animation: fadeUp 0.9s ease 0.2s both;
+        }
+
+        .hero-divider {
+            width: 80px;
+            height: 1px;
+            background: linear-gradient(90deg, #c9a84c, transparent);
+            margin-bottom: 36px;
+            animation: fadeUp 0.9s ease 0.3s both;
+        }
+
+        .hero-description {
+            font-family: 'Raleway', sans-serif;
+            font-size: 0.95rem;
+            font-weight: 300;
+            color: rgba(255,255,255,0.72);
+            line-height: 1.9;
+            max-width: 520px;
+            margin-bottom: 52px;
+            animation: fadeUp 0.9s ease 0.35s both;
+        }
+
+        /* Stats row */
+        .hero-stats {
+            display: flex;
+            gap: 40px;
+            margin-bottom: 52px;
+            animation: fadeUp 0.9s ease 0.4s both;
+            flex-wrap: wrap;
+        }
+
+        .stat-item {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .stat-number {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2.2rem;
+            font-weight: 600;
+            color: #c9a84c;
+            line-height: 1;
+        }
+
+        .stat-label {
+            font-family: 'Raleway', sans-serif;
+            font-size: 0.7rem;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: rgba(255,255,255,0.45);
+            margin-top: 4px;
+        }
+
+        .stat-divider {
+            width: 1px;
+            background: rgba(255,255,255,0.15);
+            align-self: stretch;
+        }
+
+        /* CTA Buttons */
+        .hero-ctas {
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+            animation: fadeUp 0.9s ease 0.5s both;
+        }
+
+        .btn-primary {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: #c9a84c;
+            color: #0a0a0a;
+            font-family: 'Raleway', sans-serif;
+            font-size: 0.8rem;
+            font-weight: 700;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            padding: 16px 36px;
+            border-radius: 4px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-primary::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: rgba(255,255,255,0);
+            transition: background 0.3s;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 40px rgba(201,168,76,0.4);
+        }
+
+        .btn-primary:hover::after {
+            background: rgba(255,255,255,0.1);
+        }
+
+        .btn-secondary {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: transparent;
+            color: #ffffff;
+            font-family: 'Raleway', sans-serif;
+            font-size: 0.8rem;
+            font-weight: 600;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            padding: 16px 36px;
+            border-radius: 4px;
+            border: 1px solid rgba(255,255,255,0.25);
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .btn-secondary:hover {
+            border-color: #c9a84c;
+            color: #c9a84c;
+            transform: translateY(-2px);
+        }
+
+        /* Floating flight info card */
+        .hero-flight-card {
+            position: absolute;
+            right: 5%;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 320px;
+            background: rgba(8, 12, 25, 0.75);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(201,168,76,0.25);
+            border-radius: 16px;
+            padding: 28px;
+            animation: fadeLeft 1s ease 0.6s both;
+            z-index: 3;
+        }
+
+        @media (max-width: 1100px) {
+            .hero-flight-card { display: none; }
+            .hero-wrapper { align-items: center; text-align: center; }
+            .hero-badge, .hero-divider, .hero-stats { margin-left: auto; margin-right: auto; }
+            .hero-divider { background: linear-gradient(90deg, transparent, #c9a84c, transparent); }
+            .hero-description { text-align: center; }
+            .hero-ctas { justify-content: center; }
+        }
+
+        .card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .card-title {
+            font-family: 'Raleway', sans-serif;
+            font-size: 0.68rem;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: rgba(255,255,255,0.45);
+        }
+
+        .card-live {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            font-family: 'Raleway', sans-serif;
+            font-size: 0.65rem;
+            color: #4ade80;
+            letter-spacing: 0.1em;
+        }
+
+        .card-live::before {
+            content: '';
+            width: 5px; height: 5px;
+            border-radius: 50%;
+            background: #4ade80;
+            animation: pulse 1.5s ease-in-out infinite;
+        }
+
+        .flight-route {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 24px;
+        }
+
+        .route-airport {
+            flex: 1;
+        }
+
+        .airport-code {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2rem;
+            font-weight: 700;
+            color: #ffffff;
+            line-height: 1;
+        }
+
+        .airport-city {
+            font-family: 'Raleway', sans-serif;
+            font-size: 0.65rem;
+            color: rgba(255,255,255,0.4);
+            letter-spacing: 0.1em;
+        }
+
+        .route-line {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .route-arrow {
+            width: 100%;
+            height: 1px;
+            background: linear-gradient(90deg, rgba(255,255,255,0.2), #c9a84c, rgba(255,255,255,0.2));
+            position: relative;
+        }
+
+        .route-arrow::after {
+            content: '✈';
+            position: absolute;
+            top: -9px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: #c9a84c;
+            font-size: 14px;
+            animation: fly 3s ease-in-out infinite;
+        }
+
+        @keyframes fly {
+            0%, 100% { left: 30%; }
+            50% { left: 70%; }
+        }
+
+        .route-duration {
+            font-family: 'Raleway', sans-serif;
+            font-size: 0.62rem;
+            color: rgba(255,255,255,0.35);
+        }
+
+        .route-airport.text-right .airport-city { text-align: right; }
+
+        .flight-detail-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 0;
+            border-top: 1px solid rgba(255,255,255,0.07);
+        }
+
+        .detail-label {
+            font-family: 'Raleway', sans-serif;
+            font-size: 0.68rem;
+            color: rgba(255,255,255,0.35);
+            letter-spacing: 0.1em;
+        }
+
+        .detail-value {
+            font-family: 'Raleway', sans-serif;
+            font-size: 0.75rem;
+            color: rgba(255,255,255,0.85);
+            font-weight: 500;
+        }
+
+        .card-price {
+            margin-top: 20px;
+            padding: 14px 18px;
+            background: rgba(201,168,76,0.1);
+            border: 1px solid rgba(201,168,76,0.25);
+            border-radius: 8px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .price-from {
+            font-family: 'Raleway', sans-serif;
+            font-size: 0.65rem;
+            color: rgba(255,255,255,0.4);
+        }
+
+        .price-amount {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.6rem;
+            font-weight: 600;
+            color: #c9a84c;
+        }
+
+        /* Decorative vertical text */
+        .hero-vertical-text {
+            position: absolute;
+            left: 24px;
+            bottom: 80px;
+            writing-mode: vertical-rl;
+            text-orientation: mixed;
+            transform: rotate(180deg);
+            font-family: 'Raleway', sans-serif;
+            font-size: 0.65rem;
+            letter-spacing: 0.25em;
+            text-transform: uppercase;
+            color: rgba(255,255,255,0.25);
+            z-index: 2;
+            animation: fadeUp 1s ease 0.8s both;
+        }
+
+        /* Scroll indicator */
+        .scroll-indicator {
+            position: absolute;
+            bottom: 36px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+            z-index: 2;
+            animation: fadeUp 1s ease 1s both;
+        }
+
+        .scroll-dot {
+            width: 1px;
+            height: 50px;
+            background: linear-gradient(to bottom, rgba(201,168,76,0.8), transparent);
+            animation: scrollPulse 2s ease-in-out infinite;
+        }
+
+        @keyframes scrollPulse {
+            0%, 100% { opacity: 0.3; transform: scaleY(1); }
+            50% { opacity: 1; transform: scaleY(1.2); }
+        }
+
+        /* ===== ANIMATIONS ===== */
+        @keyframes fadeDown {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes fadeUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes fadeLeft {
+            from { opacity: 0; transform: translateX(30px) translateY(-50%); }
+            to { opacity: 1; transform: translateX(0) translateY(-50%); }
+        }
+
+        /* ===== BOOKING MODAL ===== */
+        .booking-modal-overlay {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(0,0,0,0.85);
+            backdrop-filter: blur(8px);
+            z-index: 9999;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .booking-modal-overlay.active {
+            display: flex;
+            animation: fadeIn 0.3s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .booking-modal {
+            background: #0d1117;
+            border: 1px solid rgba(201,168,76,0.3);
+            border-radius: 20px;
+            width: 100%;
+            max-width: 540px;
+            max-height: 90vh;
+            overflow-y: auto;
+            animation: modalUp 0.35s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+        }
+
+        @keyframes modalUp {
+            from { opacity: 0; transform: translateY(40px) scale(0.95); }
+            to { opacity: 1; transform: translateY(0) scale(1); }
+        }
+
+        .modal-header {
+            padding: 28px 32px 20px;
+            border-bottom: 1px solid rgba(255,255,255,0.06);
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+        }
+
+        .modal-header-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.8rem;
+            color: #ffffff;
+            font-weight: 400;
+        }
+
+        .modal-header-sub {
+            font-family: 'Raleway', sans-serif;
+            font-size: 0.72rem;
+            color: rgba(255,255,255,0.4);
+            letter-spacing: 0.1em;
+            margin-top: 4px;
+        }
+
+        .modal-close {
+            background: rgba(255,255,255,0.06);
+            border: none;
+            color: rgba(255,255,255,0.5);
+            cursor: pointer;
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.1rem;
+            transition: all 0.2s;
+            flex-shrink: 0;
+        }
+
+        .modal-close:hover {
+            background: rgba(201,168,76,0.15);
+            color: #c9a84c;
+        }
+
+        .modal-body {
+            padding: 28px 32px 32px;
+        }
+
+        .route-selector {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 8px;
+            margin-bottom: 20px;
+        }
+
+        .route-option {
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 10px;
+            padding: 12px 14px;
+            cursor: pointer;
+            transition: all 0.2s;
+            background: transparent;
+        }
+
+        .route-option:hover {
+            border-color: rgba(201,168,76,0.4);
+        }
+
+        .route-option.selected {
+            border-color: #c9a84c;
+            background: rgba(201,168,76,0.08);
+        }
+
+        .route-option-dest {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1rem;
+            color: #ffffff;
+            font-weight: 500;
+        }
+
+        .route-option-code {
+            font-family: 'Raleway', sans-serif;
+            font-size: 0.65rem;
+            color: rgba(255,255,255,0.35);
+            letter-spacing: 0.1em;
+            margin-top: 2px;
+        }
+
+        .route-option-price {
+            font-family: 'Raleway', sans-serif;
+            font-size: 0.72rem;
+            color: #c9a84c;
+            margin-top: 6px;
+            font-weight: 600;
+        }
+
+        .form-group {
+            margin-bottom: 16px;
+        }
+
+        .form-label {
+            display: block;
+            font-family: 'Raleway', sans-serif;
+            font-size: 0.68rem;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: rgba(255,255,255,0.4);
+            margin-bottom: 8px;
+        }
+
+        .form-input {
+            width: 100%;
+            background: rgba(255,255,255,0.04);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 8px;
+            padding: 12px 16px;
+            color: #ffffff;
+            font-family: 'Raleway', sans-serif;
+            font-size: 0.9rem;
+            outline: none;
+            transition: border-color 0.2s;
+        }
+
+        .form-input:focus {
+            border-color: rgba(201,168,76,0.5);
+        }
+
+        .form-input::placeholder {
+            color: rgba(255,255,255,0.2);
+        }
+
+        .form-select {
+            appearance: none;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23c9a84c' d='M6 8L1 3h10z'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 14px center;
+            cursor: pointer;
+        }
+
+        .form-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+        }
+
+        .section-label {
+            font-family: 'Raleway', sans-serif;
+            font-size: 0.68rem;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: rgba(201,168,76,0.7);
+            margin-bottom: 14px;
+            margin-top: 24px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .section-label::after {
+            content: '';
+            flex: 1;
+            height: 1px;
+            background: rgba(201,168,76,0.15);
+        }
+
+        .modal-footer {
+            padding: 0 32px 32px;
+            display: flex;
+            gap: 12px;
+        }
+
+        .btn-book-wa {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            background: #25d366;
+            color: #000000;
+            font-family: 'Raleway', sans-serif;
+            font-size: 0.82rem;
+            font-weight: 700;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            padding: 15px 24px;
+            border-radius: 10px;
+            border: none;
+            cursor: pointer;
+            transition: all 0.25s;
+            text-decoration: none;
+        }
+
+        .btn-book-wa:hover {
+            background: #22c55e;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(37,211,102,0.35);
+        }
+
+        .wa-icon {
+            font-size: 1.1rem;
+        }
+
+        /* ===== DESTINATION IMAGE HOVER + LIGHTBOX ===== */
+        .dest-img-wrap {
+            position: relative;
+            flex-shrink: 0;
+            cursor: zoom-in;
+            overflow: hidden;
+            border-radius: 8px;
+        }
+
+        .dest-img-wrap img {
+            display: block;
+            transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+                        filter 0.3s ease;
+            will-change: transform;
+        }
+
+        .dest-img-wrap:hover img {
+            transform: scale(1.08);
+            filter: brightness(0.75);
+        }
+
+        /* Zoom icon overlay */
+        .dest-img-wrap::after {
+            content: '\f00e';
+            font-family: 'Font Awesome 5 Free';
+            font-weight: 900;
+            position: absolute;
+            inset: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #ffffff;
+            font-size: 1.4rem;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            pointer-events: none;
+            text-shadow: 0 2px 8px rgba(0,0,0,0.6);
+        }
+
+        .dest-img-wrap:hover::after {
+            opacity: 1;
+        }
+
+        /* Gold ring on hover */
+        .dest-img-wrap::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border-radius: 8px;
+            border: 2px solid transparent;
+            transition: border-color 0.3s ease;
+            z-index: 2;
+            pointer-events: none;
+        }
+
+        .dest-img-wrap:hover::before {
+            border-color: #c9a84c;
+        }
+
+        /* ===== LIGHTBOX ===== */
+        #dest-lightbox {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(0,0,0,0.92);
+            z-index: 99999;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            backdrop-filter: blur(12px);
+        }
+
+        #dest-lightbox.open {
+            display: flex;
+            animation: lbFadeIn 0.25s ease;
+        }
+
+        @keyframes lbFadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .lb-inner {
+            position: relative;
+            max-width: 90vw;
+            max-height: 90vh;
+            animation: lbZoomIn 0.3s cubic-bezier(0.34, 1.4, 0.64, 1) both;
+        }
+
+        @keyframes lbZoomIn {
+            from { opacity: 0; transform: scale(0.85); }
+            to { opacity: 1; transform: scale(1); }
+        }
+
+        .lb-inner img {
+            display: block;
+            max-width: 90vw;
+            max-height: 75vh;
+            width: auto;
+            height: auto;
+            border-radius: 12px;
+            box-shadow: 0 30px 80px rgba(0,0,0,0.7);
+            object-fit: contain;
+        }
+
+        .lb-caption {
+            margin-top: 16px;
+            text-align: center;
+        }
+
+        .lb-caption-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.6rem;
+            font-weight: 400;
+            color: #ffffff;
+            line-height: 1.2;
+        }
+
+        .lb-caption-sub {
+            font-family: 'Raleway', sans-serif;
+            font-size: 0.75rem;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: #c9a84c;
+            margin-top: 6px;
+        }
+
+        .lb-close {
+            position: absolute;
+            top: -16px;
+            right: -16px;
+            width: 40px;
+            height: 40px;
+            background: #c9a84c;
+            border: none;
+            border-radius: 50%;
+            color: #0a0a0a;
+            font-size: 1rem;
+            font-weight: 700;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s;
+            line-height: 1;
+            z-index: 10;
+        }
+
+        .lb-close:hover {
+            background: #f0d080;
+            transform: rotate(90deg) scale(1.1);
+        }
+
+        .lb-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(201,168,76,0.15);
+            border: 1px solid rgba(201,168,76,0.4);
+            color: #c9a84c;
+            width: 46px;
+            height: 46px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.1rem;
+            transition: all 0.2s;
+        }
+
+        .lb-nav:hover {
+            background: rgba(201,168,76,0.35);
+            transform: translateY(-50%) scale(1.08);
+        }
+
+        .lb-prev { left: -60px; }
+        .lb-next { right: -60px; }
+
+        @media (max-width: 700px) {
+            .lb-prev { left: -48px; }
+            .lb-next { right: -48px; }
+            .lb-nav { width: 36px; height: 36px; font-size: 0.9rem; }
+        }
+
+        .lb-counter {
+            position: absolute;
+            bottom: -36px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-family: 'Raleway', sans-serif;
+            font-size: 0.72rem;
+            letter-spacing: 0.15em;
+            color: rgba(255,255,255,0.4);
+            white-space: nowrap;
+        }
+
+        /* Scroll utility classes */
+        .tm-container { max-width: 1200px; }
+        .tm-intro-width { max-width: 100%; }
+        .tm-text-gold { color: #c9a84c; }
+        .tm-text-brown { color: #3d2b0f; }
+        .tm-text-green { color: #1a3a2a; }
+        .tm-bg-brown { background-color: rgba(50, 30, 5, 0.9); }
+        .tm-bg-green { background-color: #1a3a2a; }
+        .tm-text-yellow { color: #f0c060; }
+        .tm-border-gold { border-color: #c9a84c; }
+        .tm-logo-font { font-family: 'Oswald', sans-serif; }
+        .tm-text-2xl { font-size: 1.25rem; }
+    </style>
+</head>
+<body>
+
+    <!-- ===================== HERO SECTION (REDESIGNED) ===================== -->
+    <div id="intro" class="parallax-window" data-parallax="scroll" data-image-src="img/flight-bg-01.jpg">
+        <nav id="tm-nav" class="fixed w-full" style="z-index:100;">
+            <div class="tm-container mx-auto px-6 md:py-6 text-right">
+                <button class="md:hidden py-2 px-2" id="menu-toggle"><i class="fas fa-2x fa-bars tm-text-gold"></i></button>
+                <ul class="mb-3 md:mb-0 text-xl font-normal flex justify-end flex-col md:flex-row" style="font-family:'Raleway',sans-serif; letter-spacing:0.12em;">
+                    <li class="inline-block mb-4 mx-2"><a href="#intro" class="tm-text-gold py-1 md:py-3 px-3" style="font-size:0.78rem;text-transform:uppercase;letter-spacing:0.18em;">Home</a></li>
+                    <li class="inline-block mb-4 mx-2"><a href="#routes" class="tm-text-gold py-1 md:py-3 px-3" style="font-size:0.78rem;text-transform:uppercase;letter-spacing:0.18em;">Flights</a></li>
+                    <li class="inline-block mb-4 mx-2"><a href="#about" class="tm-text-gold py-1 md:py-3 px-3" style="font-size:0.78rem;text-transform:uppercase;letter-spacing:0.18em;">About</a></li>
+                    <li class="inline-block mb-4 mx-2">
+                        <a href="#" onclick="openBookingModal(event)" class="py-1 md:py-2 px-5 rounded" style="font-size:0.78rem;text-transform:uppercase;letter-spacing:0.18em;background:#c9a84c;color:#0a0a0a;font-weight:700;text-decoration:none;">Book Now</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+
+        <!-- Vertical text decoration -->
+        <div class="hero-vertical-text">Est. 2024 &nbsp;—&nbsp; Yogyakarta International Airport</div>
+
+        <div class="hero-wrapper tm-container mx-auto" style="position:relative;">
+            <div style="max-width:600px;">
+                <div class="hero-badge">
+                    <span>Premium International Carrier</span>
+                </div>
+
+                <h1 class="hero-title">
+                    Fly Beyond<br>
+                    <span class="accent">Horizons</span>
+                </h1>
+
+                <p class="hero-subtitle">Starducc Airlines &mdash; Yogyakarta to the World</p>
+
+                <div class="hero-divider"></div>
+
+                <p class="hero-description">
+                    Founded by Fatih Adhwa' Prasufa, Ph.D., we connect Yogyakarta to 8 major global destinations with next-generation fleets and signature Indonesian hospitality. Fly premium, arrive inspired.
+                </p>
+
+                <div class="hero-stats">
+                    <div class="stat-item">
+                        <span class="stat-number">8+</span>
+                        <span class="stat-label">Destinations</span>
+                    </div>
+                    <div class="stat-divider"></div>
+                    <div class="stat-item">
+                        <span class="stat-number">24/7</span>
+                        <span class="stat-label">Support</span>
+                    </div>
+                </div>
+
+                <div class="hero-ctas">
+                    <a href="#routes" class="btn-primary">
+                        <i class="fas fa-plane-departure"></i>
+                        Explore Flights
+                    </a>
+                    <a href="#" onclick="openBookingModal(event)" class="btn-secondary">
+                        <i class="fas fa-ticket-alt"></i>
+                        Book a Ticket
+                    </a>
+                </div>
+            </div>
+
+            <!-- Floating flight info card -->
+            <div class="hero-flight-card">
+                <div class="card-header">
+                    <span class="card-title">Featured Route</span>
+                    <span class="card-live">Available Now</span>
+                </div>
+
+                <div class="flight-route">
+                    <div class="route-airport">
+                        <div class="airport-code">YIA</div>
+                        <div class="airport-city">Yogyakarta</div>
+                    </div>
+                    <div class="route-line">
+                        <div class="route-arrow"></div>
+                        <div class="route-duration">~7h 45m</div>
+                    </div>
+                    <div class="route-airport text-right">
+                        <div class="airport-code">DXB</div>
+                        <div class="airport-city" style="text-align:right;">Dubai</div>
+                    </div>
+                </div>
+
+                <div class="flight-detail-row">
+                    <span class="detail-label">Fleet</span>
+                    <span class="detail-value">Airbus A380-800</span>
+                </div>
+                <div class="flight-detail-row">
+                    <span class="detail-label">Class</span>
+                    <span class="detail-value">Economy · Business · First</span>
+                </div>
+                <div class="flight-detail-row">
+                    <span class="detail-label">Departs</span>
+                    <span class="detail-value">Daily at 23:55 WIB</span>
+                </div>
+
+                <div class="card-price">
+                    <div>
+                        <div class="price-from">Starting from</div>
+                        <div class="price-amount">IDR 8.9M</div>
+                    </div>
+                    <button onclick="openBookingModal()" style="background:#c9a84c;color:#0a0a0a;border:none;border-radius:6px;padding:8px 16px;font-family:'Raleway',sans-serif;font-size:0.7rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;cursor:pointer;transition:all 0.2s;" onmouseover="this.style.background='#f0d080'" onmouseout="this.style.background='#c9a84c'">
+                        Book Now
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Scroll indicator -->
+        <div class="scroll-indicator">
+            <div class="scroll-dot"></div>
+        </div>
+    </div>
+
+    <!-- ===================== ROUTES SECTION (UNCHANGED) ===================== -->
+    <div id="routes" class="parallax-window" data-parallax="scroll" data-image-src="img/flight-bg-02.jpg">
+        <div class="container mx-auto tm-container py-24 sm:py-48">
+            <div class="text-center mb-16">
+                <h2 class="bg-white tm-text-brown py-6 px-12 text-4xl font-medium inline-block rounded-md">Popular International Routes</h2>
+            </div>
+            <div class="flex flex-col lg:flex-row justify-around items-center">
+                
+                <div class="flex-1 m-5 rounded-xl px-4 py-6 sm:px-8 sm:py-10 tm-bg-brown tm-item-container">
+                    <div class="flex items-start mb-6 tm-menu-item">
+                        <div class="dest-img-wrap" onclick="openLightbox('img/dest-tokyo.jpg','Tokyo','Yogyakarta (YIA) → Tokyo Haneda (HND)')" style="width:140px;height:105px;">
+                            <img src="img/dest-tokyo.jpg" alt="Tokyo" style="width:140px;height:105px;object-fit:cover;border-radius:8px;">
+                        </div>
+                        <div class="ml-3 sm:ml-2">
+                            <h3 class="text-lg sm:text-xl mb-1 tm-text-yellow">Yogyakarta (YIA) &rarr; Tokyo (HND)</h3>
+                            <div class="text-white text-xs font-light mb-1">Fleet: Boeing 787-9 Dreamliner</div>
+                            <div class="text-white text-xs font-light mb-1">Distance: ~5,800 km</div>
+                            <div class="tm-text-gold text-md font-semibold">IDR 6.500K <span class="text-xs text-gray-400">/way</span></div>
+                        </div>
+                    </div>
+
+                    <div class="flex items-start mb-6 tm-menu-item">
+                        <div class="dest-img-wrap" onclick="openLightbox('img/dest-singapore.jpg','Singapore','Yogyakarta (YIA) → Singapore Changi (SIN)')" style="width:140px;height:105px;">
+                            <img src="img/dest-singapore.jpg" alt="Singapore" style="width:140px;height:105px;object-fit:cover;border-radius:8px;">
+                        </div>
+                        <div class="ml-3 sm:ml-1">
+                            <h3 class="text-lg sm:text-xl mb-1 tm-text-yellow">Yogyakarta (YIA) &rarr; Singapore (SIN)</h3>
+                            <div class="text-white text-xs font-light mb-1">Fleet: Airbus A320neo</div>
+                            <div class="text-white text-xs font-light mb-1">Distance: ~1,350 km</div>
+                            <div class="tm-text-gold text-md font-semibold">IDR 1.800K <span class="text-xs text-gray-400">/way</span></div>
+                        </div>
+                    </div>
+
+                    <div class="flex items-start mb-6 tm-menu-item">
+                        <div class="dest-img-wrap" onclick="openLightbox('img/dest-london.jpg','London','Yogyakarta (YIA) → London Heathrow (LHR)')" style="width:80px;height:80px;">
+                            <img src="img/dest-london.jpg" alt="London" style="width:80px;height:80px;object-fit:cover;border-radius:8px;">
+                        </div>
+                        <div class="ml-3 sm:ml-6">
+                            <h3 class="text-lg sm:text-xl mb-1 tm-text-yellow">Yogyakarta (YIA) &rarr; London (LHR)</h3>
+                            <div class="text-white text-xs font-light mb-1">Fleet: Airbus A350-1000</div>
+                            <div class="text-white text-xs font-light mb-1">Distance: ~11,600 km</div>
+                            <div class="tm-text-gold text-md font-semibold">IDR 14.500K <span class="text-xs text-gray-400">/way</span></div>
+                        </div>
+                    </div>
+
+                    <div class="flex items-start mb-6 tm-menu-item">
+                        <div class="dest-img-wrap" onclick="openLightbox('img/dest-amsterdam.jpg','Amsterdam','Yogyakarta (YIA) → Amsterdam Schiphol (AMS)')" style="width:80px;height:80px;">
+                            <img src="img/dest-amsterdam.jpg" alt="Amsterdam" style="width:80px;height:80px;object-fit:cover;border-radius:8px;">
+                        </div>
+                        <div class="ml-3 sm:ml-6">
+                            <h3 class="text-lg sm:text-xl mb-1 tm-text-yellow">Yogyakarta (YIA) &rarr; Amsterdam (AMS)</h3>
+                            <div class="text-white text-xs font-light mb-1">Fleet: Boeing 777-300ER</div>
+                            <div class="text-white text-xs font-light mb-1">Distance: ~11,400 km</div>
+                            <div class="tm-text-gold text-md font-semibold">IDR 13.800K <span class="text-xs text-gray-400">/way</span></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="flex-1 m-5 rounded-xl px-4 py-6 sm:px-8 sm:py-10 tm-bg-brown tm-item-container">
+                    <div class="flex items-start justify-end mb-6 tm-menu-item-2">
+                        <div class="text-right mr-6">
+                            <h3 class="text-lg sm:text-xl mb-1 tm-text-yellow">Yogyakarta (YIA) &rarr; Sydney (SYD)</h3>
+                            <div class="text-white text-xs font-light mb-1">Fleet: Airbus A330-900neo</div>
+                            <div class="text-white text-xs font-light mb-1">Distance: ~4,900 km</div>
+                            <div class="tm-text-gold text-md font-semibold">IDR 5.200K <span class="text-xs text-gray-400">/way</span></div>
+                        </div>
+                        <div class="dest-img-wrap" onclick="openLightbox('img/dest-sydney.jpg','Sydney','Yogyakarta (YIA) → Sydney Kingsford Smith (SYD)')" style="width:80px;height:80px;">
+                            <img src="img/dest-sydney.jpg" alt="Sydney" style="width:80px;height:80px;object-fit:cover;border-radius:8px;">
+                        </div>
+                    </div>
+
+                    <div class="flex items-start justify-end mb-6 tm-menu-item-2">
+                        <div class="text-right mr-6">
+                            <h3 class="text-lg sm:text-xl mb-1 tm-text-yellow">Yogyakarta (YIA) &rarr; Dubai (DXB)</h3>
+                            <div class="text-white text-xs font-light mb-1">Fleet: Airbus A380-800</div>
+                            <div class="text-white text-xs font-light mb-1">Distance: ~7,100 km</div>
+                            <div class="tm-text-gold text-md font-semibold">IDR 8.900K <span class="text-xs text-gray-400">/way</span></div>
+                        </div>
+                        <div class="dest-img-wrap" onclick="openLightbox('img/dest-dubai.jpg','Dubai','Yogyakarta (YIA) → Dubai International (DXB)')" style="width:80px;height:80px;">
+                            <img src="img/dest-dubai.jpg" alt="Dubai" style="width:80px;height:80px;object-fit:cover;border-radius:8px;">
+                        </div>
+                    </div>
+
+                    <div class="flex items-start justify-end mb-6 tm-menu-item-2">
+                        <div class="text-right mr-6">
+                            <h3 class="text-lg sm:text-xl mb-1 tm-text-yellow">Yogyakarta (YIA) &rarr; New York (JFK)</h3>
+                            <div class="text-white text-xs font-light mb-1">Fleet: Boeing 777-9X</div>
+                            <div class="text-white text-xs font-light mb-1">Distance: ~16,200 km</div>
+                            <div class="tm-text-gold text-md font-semibold">IDR 18.250K <span class="text-xs text-gray-400">/way</span></div>
+                        </div>
+                        <div class="dest-img-wrap" onclick="openLightbox('img/dest-newyork.jpg','New York','Yogyakarta (YIA) → John F. Kennedy Intl (JFK)')" style="width:80px;height:80px;">
+                            <img src="img/dest-newyork.jpg" alt="New York" style="width:80px;height:80px;object-fit:cover;border-radius:8px;">
+                        </div>
+                    </div>
+
+                    <div class="flex items-start justify-end mb-6 tm-menu-item-2">
+                        <div class="text-right mr-6">
+                            <h3 class="text-lg sm:text-xl mb-1 tm-text-yellow">Yogyakarta (YIA) &rarr; Istanbul (IST)</h3>
+                            <div class="text-white text-xs font-light mb-1">Fleet: Airbus A350-900</div>
+                            <div class="text-white text-xs font-light mb-1">Distance: ~9,450 km</div>
+                            <div class="tm-text-gold text-md font-semibold">IDR 10.200K <span class="text-xs text-gray-400">/way</span></div>
+                        </div>
+                        <div class="dest-img-wrap" onclick="openLightbox('img/dest-istanbul.jpg','Istanbul','Yogyakarta (YIA) → Istanbul Airport (IST)')" style="width:80px;height:80px;">
+                            <img src="img/dest-istanbul.jpg" alt="Istanbul" style="width:80px;height:80px;object-fit:cover;border-radius:8px;">
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- ===================== ABOUT SECTION (UNCHANGED) ===================== -->
+    <div id="about" class="parallax-window" data-parallax="scroll" data-image-src="img/flight-bg-03.jpg">
+        <div class="container mx-auto tm-container py-24 sm:py-48">
+            <div class="tm-item-container sm:ml-auto sm:mr-12 mx-auto sm:px-0 px-4">
+                <div class="bg-white bg-opacity-80 p-12 pb-14 rounded-xl mb-5">
+                    <h2 class="mb-6 tm-text-green text-4xl font-medium">About Our Airline</h2>
+                    <p class="mb-6 text-base leading-8">
+                        Starducc Airlines commits to safe, on-time, and modern flight experiences for every passenger. Operating proudly from Yogyakarta International Airport (YIA), we utilize eco-friendly, next-gen fleets to actively minimize carbon emissions while maintaining our signature global-tier hospitality.
+                    </p>
+                    <p class="text-base leading-8">
+                        We believe that premium comfort and environmental responsibility can seamlessly go hand in hand. To guarantee your seat and ensure a seamless travel experience, please fill out our instant reservation form or choose from our premium business package options, tailored specifically to elevate your journey.
+                    </p>
+                    <p class="text-base leading-8 mt-4">Thank you for flying with us.</p>
+                </div>
+                <a href="#" onclick="openBookingModal(event)" class="inline-block tm-bg-green transition text-white text-xl pt-3 pb-4 px-8 rounded-md" style="text-decoration:none;">
+                    <i class="fas fa-ticket-alt mr-4"></i>
+                    Book Ticket
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===================== BOOKING SECTION (UNCHANGED) ===================== -->
+    <div id="booking" class="parallax-window relative" data-parallax="scroll" data-image-src="img/flight-bg-04.jpg">
+        <div class="container mx-auto tm-container pt-24 pb-48 sm:py-48">
+            <div class="flex flex-col lg:flex-row justify-around items-center lg:items-stretch">
+                <div class="flex-1 rounded-xl px-10 py-12 m-5 bg-white bg-opacity-80 tm-item-container">
+                    <h2 class="text-3xl mb-6 tm-text-green">Headquarters</h2>
+                    <p class="mb-6 text-lg leading-8">
+                        Jl.Dadapan, Kapanewon Temon, Kabupaten Kulon Progo, Daerah Istimewa Yogyakarta 55654, Indonesia (Yogyakarta International Airport)
+                    </p>
+                    <p class="mb-10 text-lg">
+                        <span class="block mb-2">Tel: <a href="tel:085893090080" class="hover:text-yellow-600 transition">085893090080</a></span>
+                        <span class="block">Email: <a href="mailto:booking@starduccairlines.com" class="hover:text-yellow-600 transition">booking@starduccairlines.com</a></span>
+                    </p>
+                    <div class="text-center">
+                        <a href="https://maps.app.goo.gl/U388p8iL7cyD951x6" target="_blank" class="inline-block text-white text-2xl pl-10 pr-12 py-6 rounded-lg transition tm-bg-green" style="text-decoration:none;">
+                            <i class="fas fa-map-marked-alt mr-8"></i>
+                            Find HQ Airport
+                        </a>
+                    </div>
+                </div>
+
+                <div class="flex-1 rounded-xl p-12 pb-14 m-5 bg-black bg-opacity-50 tm-item-container">
+                    <h2 class="text-white text-2xl mb-4">Quick Flight Booking</h2>
+                    <p class="text-gray-300 text-sm mb-6" style="font-family:'Raleway',sans-serif;">Isi form di bawah ini dan kami akan menghubungi Anda via WhatsApp untuk konfirmasi pemesanan.</p>
+                    <div class="text-lg">
+                        <input type="text" id="q-name" class="input w-full bg-black border-b bg-opacity-0 text-white px-0 py-4 mb-4 tm-border-gold" placeholder="Full Name" style="border-bottom: 1px solid #c9a84c; outline:none; background:transparent; display:block;" />
+                        <input type="email" id="q-email" class="input w-full bg-black border-b bg-opacity-0 text-white px-0 py-4 mb-4 tm-border-gold" placeholder="Email Address" style="border-bottom: 1px solid #c9a84c; outline:none; background:transparent; display:block;" />
+                        <input type="text" id="q-dest" class="input w-full bg-black border-b bg-opacity-0 text-white px-0 py-4 mb-4 tm-border-gold" placeholder="Destination Airport Code (e.g. HND, SIN, LHR)" style="border-bottom: 1px solid #c9a84c; outline:none; background:transparent; display:block;" />
+                        <textarea rows="4" id="q-msg" class="input w-full bg-black border-b bg-opacity-0 text-white px-0 py-4 mb-4 tm-border-gold" placeholder="Special Requests (e.g. Seat preference, meals)..." style="border-bottom: 1px solid #c9a84c; outline:none; background:transparent; display:block; resize:none;"></textarea>
+                        <div class="text-right">
+                            <button onclick="sendQuickBooking()" style="background:#25d366;color:#000;border:none;border-radius:6px;padding:12px 28px;font-family:'Raleway',sans-serif;font-size:0.82rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;cursor:pointer;transition:all 0.25s;display:inline-flex;align-items:center;gap:8px;" onmouseover="this.style.background='#22c55e';this.style.transform='translateY(-2px)'" onmouseout="this.style.background='#25d366';this.style.transform='none'">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.890-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+                                Pesan via WhatsApp
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <footer class="absolute bottom-0 left-0 w-full">
+                <div class="text-white container mx-auto tm-container p-8 text-lg flex flex-col md:flex-row justify-between">
+                    <span>Copyright 2026 Starducc Airlines. All rights reserved.</span>
+                    <span class="mt-5 md:mt-0">Design: <a href="https://www.blog.agustik.com" target="_parent">Agustik[dot]com</a></span>
+                </div>
+            </footer>
+        </div>
+    </div>
+
+    <!-- ===================== DESTINATION LIGHTBOX ===================== -->
+    <div id="dest-lightbox" onclick="handleLightboxBgClick(event)">
+        <div class="lb-inner">
+            <button class="lb-close" onclick="closeLightbox()" title="Tutup">✕</button>
+            <button class="lb-nav lb-prev" onclick="lbNavigate(-1)" title="Sebelumnya"><i class="fas fa-chevron-left"></i></button>
+            <button class="lb-nav lb-next" onclick="lbNavigate(1)" title="Berikutnya"><i class="fas fa-chevron-right"></i></button>
+            <img id="lb-img" src="" alt="">
+            <div class="lb-caption">
+                <div class="lb-caption-title" id="lb-title"></div>
+                <div class="lb-caption-sub" id="lb-sub"></div>
+            </div>
+            <div class="lb-counter" id="lb-counter"></div>
+        </div>
+    </div>
+
+    <!-- ===================== BOOKING MODAL ===================== -->
+    <div class="booking-modal-overlay" id="bookingModal" onclick="handleOverlayClick(event)">
+        <div class="booking-modal" onclick="event.stopPropagation()">
+            <div class="modal-header">
+                <div>
+                    <div class="modal-header-title">Reserve Your Seat</div>
+                    <div class="modal-header-sub">YIA — Direct to the World</div>
+                </div>
+                <button class="modal-close" onclick="closeBookingModal()">✕</button>
+            </div>
+
+            <div class="modal-body">
+                <div class="section-label">Pilih Destinasi</div>
+                <div class="route-selector" id="routeSelector">
+                    <div class="route-option selected" onclick="selectRoute(this, 'Tokyo (HND)', '6.5M')" data-dest="Tokyo (HND)" data-price="IDR 6.500K">
+                        <div class="route-option-dest">✈ Tokyo</div>
+                        <div class="route-option-code">YIA → HND</div>
+                        <div class="route-option-price">IDR 6.500K</div>
+                    </div>
+                    <div class="route-option" onclick="selectRoute(this, 'Singapore (SIN)', '1.8M')" data-dest="Singapore (SIN)" data-price="IDR 1.800K">
+                        <div class="route-option-dest">✈ Singapore</div>
+                        <div class="route-option-code">YIA → SIN</div>
+                        <div class="route-option-price">IDR 1.800K</div>
+                    </div>
+                    <div class="route-option" onclick="selectRoute(this, 'London (LHR)', '14.5M')" data-dest="London (LHR)" data-price="IDR 14.500K">
+                        <div class="route-option-dest">✈ London</div>
+                        <div class="route-option-code">YIA → LHR</div>
+                        <div class="route-option-price">IDR 14.500K</div>
+                    </div>
+                    <div class="route-option" onclick="selectRoute(this, 'Dubai (DXB)', '8.9M')" data-dest="Dubai (DXB)" data-price="IDR 8.900K">
+                        <div class="route-option-dest">✈ Dubai</div>
+                        <div class="route-option-code">YIA → DXB</div>
+                        <div class="route-option-price">IDR 8.900K</div>
+                    </div>
+                    <div class="route-option" onclick="selectRoute(this, 'New York (JFK)', '18.25M')" data-dest="New York (JFK)" data-price="IDR 18.250K">
+                        <div class="route-option-dest">✈ New York</div>
+                        <div class="route-option-code">YIA → JFK</div>
+                        <div class="route-option-price">IDR 18.250K</div>
+                    </div>
+                    <div class="route-option" onclick="selectRoute(this, 'Amsterdam (AMS)', '13.8M')" data-dest="Amsterdam (AMS)" data-price="IDR 13.800K">
+                        <div class="route-option-dest">✈ Amsterdam</div>
+                        <div class="route-option-code">YIA → AMS</div>
+                        <div class="route-option-price">IDR 13.800K</div>
+                    </div>
+                    <div class="route-option" onclick="selectRoute(this, 'Sydney (SYD)', '5.2M')" data-dest="Sydney (SYD)" data-price="IDR 5.200K">
+                        <div class="route-option-dest">✈ Sydney</div>
+                        <div class="route-option-code">YIA → SYD</div>
+                        <div class="route-option-price">IDR 5.200K</div>
+                    </div>
+                    <div class="route-option" onclick="selectRoute(this, 'Istanbul (IST)', '10.2M')" data-dest="Istanbul (IST)" data-price="IDR 10.200K">
+                        <div class="route-option-dest">✈ Istanbul</div>
+                        <div class="route-option-code">YIA → IST</div>
+                        <div class="route-option-price">IDR 10.200K</div>
+                    </div>
+                </div>
+
+                <div class="section-label">Data Penumpang</div>
+
+                <div class="form-group">
+                    <label class="form-label">Nama Lengkap</label>
+                    <input type="text" id="modal-name" class="form-input" placeholder="Sesuai KTP / Paspor">
+                </div>
+
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label class="form-label">Nomor WA / HP</label>
+                        <input type="tel" id="modal-phone" class="form-input" placeholder="08xx-xxxx-xxxx">
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Jumlah Penumpang</label>
+                        <select id="modal-pax" class="form-input form-select">
+                            <option value="1">1 Penumpang</option>
+                            <option value="2">2 Penumpang</option>
+                            <option value="3">3 Penumpang</option>
+                            <option value="4">4 Penumpang</option>
+                            <option value="5+">5+ Penumpang</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label class="form-label">Tanggal Berangkat</label>
+                        <input type="date" id="modal-date" class="form-input">
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Kelas Penerbangan</label>
+                        <select id="modal-class" class="form-input form-select">
+                            <option value="Economy">Economy Class</option>
+                            <option value="Business">Business Class</option>
+                            <option value="First">First Class</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">Permintaan Khusus (opsional)</label>
+                    <input type="text" id="modal-notes" class="form-input" placeholder="Preferensi kursi, makanan, kebutuhan khusus...">
+                </div>
+            </div>
+
+            <div class="modal-footer">
+                <a id="waBookingBtn" href="#" class="btn-book-wa" onclick="sendToWhatsApp(event)">
+                    <svg class="wa-icon" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.890-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+                    Kirim Pemesanan via WhatsApp
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/jquery-3.6.0.min.js"></script>
+    <script src="js/parallax.min.js"></script>
+    <script src="js/jquery.singlePageNav.min.js"></script>
+    <script>
+        // ===== NAV =====
+        function checkAndShowHideMenu() {
+            if(window.innerWidth < 768) {
+                document.querySelector('#tm-nav ul').classList.add('hidden');
+            } else {
+                document.querySelector('#tm-nav ul').classList.remove('hidden');
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            checkAndShowHideMenu();
+            window.addEventListener('resize', checkAndShowHideMenu);
+
+            document.getElementById('menu-toggle').addEventListener('click', function() {
+                document.querySelector('#tm-nav ul').classList.toggle('hidden');
+            });
+
+            document.querySelectorAll('a[href^="#"]:not([href="#"])').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if(target) {
+                        e.preventDefault();
+                        target.scrollIntoView({ behavior: 'smooth' });
+                        if(window.innerWidth < 768) {
+                            document.querySelector('#tm-nav ul').classList.add('hidden');
+                        }
+                    }
+                });
+            });
+
+            document.addEventListener('scroll', function() {
+                const nav = document.getElementById('tm-nav');
+                if(document.documentElement.scrollTop > 100) {
+                    nav.classList.add('scroll');
+                } else {
+                    nav.classList.remove('scroll');
+                }
+            });
+        });
+
+        // ===== BOOKING MODAL =====
+        let selectedDestination = 'Tokyo (HND)';
+        let selectedPrice = 'IDR 6.500K';
+
+        function openBookingModal(e) {
+            if(e) e.preventDefault();
+            document.getElementById('bookingModal').classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeBookingModal() {
+            document.getElementById('bookingModal').classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        function handleOverlayClick(e) {
+            if(e.target === document.getElementById('bookingModal')) {
+                closeBookingModal();
+            }
+        }
+
+        function selectRoute(el, dest, price) {
+            document.querySelectorAll('.route-option').forEach(o => o.classList.remove('selected'));
+            el.classList.add('selected');
+            selectedDestination = dest;
+            selectedPrice = el.dataset.price;
+        }
+
+        function sendToWhatsApp(e) {
+            e.preventDefault();
+
+            const name = document.getElementById('modal-name').value.trim();
+            const phone = document.getElementById('modal-phone').value.trim();
+            const pax = document.getElementById('modal-pax').value;
+            const date = document.getElementById('modal-date').value;
+            const flightClass = document.getElementById('modal-class').value;
+            const notes = document.getElementById('modal-notes').value.trim();
+
+            if(!name) { alert('Mohon isi nama lengkap Anda.'); return; }
+            if(!phone) { alert('Mohon isi nomor WhatsApp / HP Anda.'); return; }
+            if(!date) { alert('Mohon pilih tanggal keberangkatan.'); return; }
+
+            const formattedDate = new Date(date).toLocaleDateString('id-ID', { weekday:'long', year:'numeric', month:'long', day:'numeric' });
+
+            const message = 
+`✈️ *PEMESANAN TIKET - STARDUCC AIRLINES*
+
+📍 *Rute:* YIA (Yogyakarta) → ${selectedDestination}
+💰 *Harga:* ${selectedPrice} /orang
+🗓️ *Tanggal:* ${formattedDate}
+💺 *Kelas:* ${flightClass} Class
+👥 *Penumpang:* ${pax} orang
+
+👤 *Nama:* ${name}
+📱 *No. WA/HP:* ${phone}
+${notes ? `📝 *Catatan:* ${notes}` : ''}
+
+Mohon konfirmasi ketersediaan seat dan informasi pembayaran. Terima kasih! 🙏`;
+
+            const waNumber = '6285893090080';
+            const waURL = `https://wa.me/${waNumber}?text=${encodeURIComponent(message)}`;
+            window.open(waURL, '_blank');
+        }
+
+        // Quick booking form in #booking section
+        function sendQuickBooking() {
+            const name = document.getElementById('q-name').value.trim();
+            const email = document.getElementById('q-email').value.trim();
+            const dest = document.getElementById('q-dest').value.trim();
+            const msg = document.getElementById('q-msg').value.trim();
+
+            if(!name || !dest) {
+                alert('Mohon isi nama dan kode destinasi.');
+                return;
+            }
+
+            const message =
+`✈️ *PEMESANAN TIKET - STARDUCC AIRLINES*
+
+👤 *Nama:* ${name}
+📧 *Email:* ${email || '-'}
+📍 *Destinasi:* ${dest}
+${msg ? `📝 *Keterangan:* ${msg}` : ''}
+
+Mohon konfirmasi ketersediaan dan informasi lengkap. Terima kasih!`;
+
+            const waURL = `https://wa.me/6285893090080?text=${encodeURIComponent(message)}`;
+            window.open(waURL, '_blank');
+        }
+
+        // ESC to close modal
+        document.addEventListener('keydown', function(e) {
+            if(e.key === 'Escape') closeBookingModal();
+        });
+        // ===== DESTINATION LIGHTBOX =====
+        const lbImages = [
+            { src: 'img/dest-tokyo.jpg',     title: 'Tokyo',       sub: 'Yogyakarta (YIA) → Tokyo Haneda (HND)' },
+            { src: 'img/dest-singapore.jpg', title: 'Singapore',   sub: 'Yogyakarta (YIA) → Singapore Changi (SIN)' },
+            { src: 'img/dest-london.jpg',    title: 'London',      sub: 'Yogyakarta (YIA) → London Heathrow (LHR)' },
+            { src: 'img/dest-amsterdam.jpg', title: 'Amsterdam',   sub: 'Yogyakarta (YIA) → Amsterdam Schiphol (AMS)' },
+            { src: 'img/dest-sydney.jpg',    title: 'Sydney',      sub: 'Yogyakarta (YIA) → Sydney Kingsford Smith (SYD)' },
+            { src: 'img/dest-dubai.jpg',     title: 'Dubai',       sub: 'Yogyakarta (YIA) → Dubai International (DXB)' },
+            { src: 'img/dest-newyork.jpg',   title: 'New York',    sub: 'Yogyakarta (YIA) → John F. Kennedy Intl (JFK)' },
+            { src: 'img/dest-istanbul.jpg',  title: 'Istanbul',    sub: 'Yogyakarta (YIA) → Istanbul Airport (IST)' },
+        ];
+
+        let lbCurrentIndex = 0;
+
+        function openLightbox(src, title, sub) {
+            lbCurrentIndex = lbImages.findIndex(i => i.src === src);
+            if(lbCurrentIndex < 0) lbCurrentIndex = 0;
+            renderLightbox();
+            document.getElementById('dest-lightbox').classList.add('open');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function renderLightbox() {
+            const item = lbImages[lbCurrentIndex];
+            const img = document.getElementById('lb-img');
+            img.style.opacity = '0';
+            img.style.transform = 'scale(0.97)';
+            img.src = item.src;
+            img.alt = item.title;
+            img.onload = function() {
+                img.style.transition = 'opacity 0.25s ease, transform 0.25s ease';
+                img.style.opacity = '1';
+                img.style.transform = 'scale(1)';
+            };
+            document.getElementById('lb-title').textContent = item.title;
+            document.getElementById('lb-sub').textContent = item.sub;
+            document.getElementById('lb-counter').textContent = (lbCurrentIndex + 1) + ' / ' + lbImages.length;
+        }
+
+        function closeLightbox() {
+            document.getElementById('dest-lightbox').classList.remove('open');
+            document.body.style.overflow = '';
+        }
+
+        function handleLightboxBgClick(e) {
+            if(e.target === document.getElementById('dest-lightbox')) closeLightbox();
+        }
+
+        function lbNavigate(dir) {
+            lbCurrentIndex = (lbCurrentIndex + dir + lbImages.length) % lbImages.length;
+            renderLightbox();
+        }
+
+        // Keyboard navigation
+        document.addEventListener('keydown', function(e) {
+            const lb = document.getElementById('dest-lightbox');
+            if(!lb.classList.contains('open')) return;
+            if(e.key === 'ArrowLeft')  lbNavigate(-1);
+            if(e.key === 'ArrowRight') lbNavigate(1);
+            if(e.key === 'Escape')     closeLightbox();
+        });
+    </script>
+</body>
+</html>
