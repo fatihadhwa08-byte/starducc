@@ -5,6 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Starducc Airlines</title>
+    <link rel="icon" type="image/jpeg" href="img/about-badge.png">
+</head>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Raleway:wght@300;400;500;600&family=Oswald:wght@600&display=swap" rel="stylesheet">
@@ -27,8 +29,8 @@
             background: linear-gradient(
                 135deg,
                 rgba(0,0,0,0.82) 0%,
-                rgba(10,20,40,0.65) 45%,
-                rgba(180,130,50,0.18) 100%
+                rgba(10,20,40,0.65) 40%,
+                rgba(180,130,50,0.18) 80%
             );
             z-index: 1;
         }
@@ -932,12 +934,12 @@
         <nav id="tm-nav" class="fixed w-full" style="z-index:100;">
             <div class="tm-container mx-auto px-6 md:py-6 text-right">
                 <button class="md:hidden py-2 px-2" id="menu-toggle"><i class="fas fa-2x fa-bars tm-text-gold"></i></button>
-                <ul class="mb-3 md:mb-0 text-xl font-normal flex justify-end flex-col md:flex-row" style="font-family:'Raleway',sans-serif; letter-spacing:0.12em;">
-                    <li class="inline-block mb-4 mx-2"><a href="#intro" class="tm-text-gold py-1 md:py-3 px-3" style="font-size:0.78rem;text-transform:uppercase;letter-spacing:0.18em;">Home</a></li>
-                    <li class="inline-block mb-4 mx-2"><a href="#routes" class="tm-text-gold py-1 md:py-3 px-3" style="font-size:0.78rem;text-transform:uppercase;letter-spacing:0.18em;">Flights</a></li>
-                    <li class="inline-block mb-4 mx-2"><a href="#about" class="tm-text-gold py-1 md:py-3 px-3" style="font-size:0.78rem;text-transform:uppercase;letter-spacing:0.18em;">About</a></li>
-                    <li class="inline-block mb-4 mx-2">
-                        <a href="#" onclick="openBookingModal(event)" class="py-1 md:py-2 px-5 rounded" style="font-size:0.78rem;text-transform:uppercase;letter-spacing:0.18em;background:#c9a84c;color:#0a0a0a;font-weight:700;text-decoration:none;">Book Now</a>
+                <ul class="mb-3 md:mb-0 text-xl font-normal flex justify-end flex-col md:flex-row" style="font-family:'Raleway',sans-serif; letter-spacing:0.18em;">
+                    <li class="inline-block mb-4 mx-4"><a href="#intro" class="tm-text-gold py-3 md:py-3 px-3" style="font-size:1rem;text-transform:uppercase;letter-spacing:0.25em;">Home</a></li>
+                    <li class="inline-block mb-4 mx-4"><a href="#routes" class="tm-text-gold py-1 md:py-3 px-3" style="font-size:1rem;text-transform:uppercase;letter-spacing:0.25em;">Flights</a></li>
+                    <li class="inline-block mb-4 mx-4"><a href="#about" class="tm-text-gold py-1 md:py-3 px-3" style="font-size:1rem;text-transform:uppercase;letter-spacing:0.25em;">About</a></li>
+                    <li class="inline-block mb-4 mx-4">
+                        <a href="#" onclick="openBookingModal(event)" class="py-1 md:py-2 px-5 rounded" style="font-size:1rem;text-transform:uppercase;letter-spacing:0.25em;background:#c9a84c;color:#0a0a0a;font-weight:700;text-decoration:none;">Book Now</a>
                     </li>
                 </ul>
             </div>
@@ -953,8 +955,8 @@
                 </div>
 
                 <h1 class="hero-title">
-                    Fly Beyond<br>
-                    <span class="accent">Horizons</span>
+                    Fly with joy<br>
+                    <span class="accent">Land in happiness</span>
                 </h1>
 
                 <p class="hero-subtitle">Starducc Airlines &mdash; Yogyakarta to the World</p>
@@ -962,7 +964,7 @@
                 <div class="hero-divider"></div>
 
                 <p class="hero-description">
-                    Founded by Fatih Adhwa' Prasufa, Ph.D., we connect Yogyakarta to 8 major global destinations with next-generation fleets and signature Indonesian hospitality. Fly premium, arrive inspired.
+                    Founded by Fatih Adhwa’ Prasufa, S.T., M.Ae., Ph.D.(aerospace engineering), we connect Yogyakarta to 8+ major global destinations with next-generation fleets and signature Indonesian hospitality. Fly premium, arrive inspired.
                 </p>
 
                 <div class="hero-stats">
@@ -1076,10 +1078,10 @@
                     </div>
 
                     <div class="flex items-start mb-6 tm-menu-item">
-                        <div class="dest-img-wrap" onclick="openLightbox('img/dest-london.jpg','London','Yogyakarta (YIA) → London Heathrow (LHR)')" style="width:80px;height:80px;">
-                            <img src="img/dest-london.jpg" alt="London" style="width:80px;height:80px;object-fit:cover;border-radius:8px;">
+                        <div class="dest-img-wrap" onclick="openLightbox('img/dest-london.jpg','London','Yogyakarta (YIA) → London Heathrow (LHR)')" style="width:140px;height:105px;">
+                            <img src="img/dest-london.jpg" alt="London" style="width:140px;height:105px;object-fit:cover;border-radius:8px;">
                         </div>
-                        <div class="ml-3 sm:ml-6">
+                        <div class="ml-3 sm:ml-2">
                             <h3 class="text-lg sm:text-xl mb-1 tm-text-yellow">Yogyakarta (YIA) &rarr; London (LHR)</h3>
                             <div class="text-white text-xs font-light mb-1">Fleet: Airbus A350-1000</div>
                             <div class="text-white text-xs font-light mb-1">Distance: ~11,600 km</div>
@@ -1088,10 +1090,10 @@
                     </div>
 
                     <div class="flex items-start mb-6 tm-menu-item">
-                        <div class="dest-img-wrap" onclick="openLightbox('img/dest-amsterdam.jpg','Amsterdam','Yogyakarta (YIA) → Amsterdam Schiphol (AMS)')" style="width:80px;height:80px;">
-                            <img src="img/dest-amsterdam.jpg" alt="Amsterdam" style="width:80px;height:80px;object-fit:cover;border-radius:8px;">
+                        <div class="dest-img-wrap" onclick="openLightbox('img/dest-amsterdam.jpg','Amsterdam','Yogyakarta (YIA) → Amsterdam Schiphol (AMS)')" style="width:140px;height:105px;">
+                            <img src="img/dest-amsterdam.jpg" alt="Amsterdam" style="width:140px;height:105px;object-fit:cover;border-radius:8px;">
                         </div>
-                        <div class="ml-3 sm:ml-6">
+                        <div class="ml-3 sm:ml-2">
                             <h3 class="text-lg sm:text-xl mb-1 tm-text-yellow">Yogyakarta (YIA) &rarr; Amsterdam (AMS)</h3>
                             <div class="text-white text-xs font-light mb-1">Fleet: Boeing 777-300ER</div>
                             <div class="text-white text-xs font-light mb-1">Distance: ~11,400 km</div>
@@ -1108,8 +1110,8 @@
                             <div class="text-white text-xs font-light mb-1">Distance: ~4,900 km</div>
                             <div class="tm-text-gold text-md font-semibold">IDR 5.200K <span class="text-xs text-gray-400">/way</span></div>
                         </div>
-                        <div class="dest-img-wrap" onclick="openLightbox('img/dest-sydney.jpg','Sydney','Yogyakarta (YIA) → Sydney Kingsford Smith (SYD)')" style="width:80px;height:80px;">
-                            <img src="img/dest-sydney.jpg" alt="Sydney" style="width:80px;height:80px;object-fit:cover;border-radius:8px;">
+                        <div class="dest-img-wrap" onclick="openLightbox('img/dest-sydney.jpg','Sydney','Yogyakarta (YIA) → Sydney Kingsford Smith (SYD)')" style="width:140px;height:105px;">
+                            <img src="img/dest-sydney.jpg" alt="Sydney" style="width:140px;height:105px;object-fit:cover;border-radius:8px;">
                         </div>
                     </div>
 
@@ -1120,8 +1122,8 @@
                             <div class="text-white text-xs font-light mb-1">Distance: ~7,100 km</div>
                             <div class="tm-text-gold text-md font-semibold">IDR 8.900K <span class="text-xs text-gray-400">/way</span></div>
                         </div>
-                        <div class="dest-img-wrap" onclick="openLightbox('img/dest-dubai.jpg','Dubai','Yogyakarta (YIA) → Dubai International (DXB)')" style="width:80px;height:80px;">
-                            <img src="img/dest-dubai.jpg" alt="Dubai" style="width:80px;height:80px;object-fit:cover;border-radius:8px;">
+                        <div class="dest-img-wrap" onclick="openLightbox('img/dest-dubai.jpg','Dubai','Yogyakarta (YIA) → Dubai International (DXB)')" style="width:140px;height:105px;">
+                            <img src="img/dest-dubai.jpg" alt="Dubai" style="width:140px;height:105px;object-fit:cover;border-radius:8px;">
                         </div>
                     </div>
 
@@ -1132,8 +1134,8 @@
                             <div class="text-white text-xs font-light mb-1">Distance: ~16,200 km</div>
                             <div class="tm-text-gold text-md font-semibold">IDR 18.250K <span class="text-xs text-gray-400">/way</span></div>
                         </div>
-                        <div class="dest-img-wrap" onclick="openLightbox('img/dest-newyork.jpg','New York','Yogyakarta (YIA) → John F. Kennedy Intl (JFK)')" style="width:80px;height:80px;">
-                            <img src="img/dest-newyork.jpg" alt="New York" style="width:80px;height:80px;object-fit:cover;border-radius:8px;">
+                        <div class="dest-img-wrap" onclick="openLightbox('img/dest-newyork.jpg','New York','Yogyakarta (YIA) → John F. Kennedy Intl (JFK)')" style="width:140px;height:105px;">
+                            <img src="img/dest-newyork.jpg" alt="New York" style="width:140px;height:105px;object-fit:cover;border-radius:8px;">
                         </div>
                     </div>
 
@@ -1144,8 +1146,8 @@
                             <div class="text-white text-xs font-light mb-1">Distance: ~9,450 km</div>
                             <div class="tm-text-gold text-md font-semibold">IDR 10.200K <span class="text-xs text-gray-400">/way</span></div>
                         </div>
-                        <div class="dest-img-wrap" onclick="openLightbox('img/dest-istanbul.jpg','Istanbul','Yogyakarta (YIA) → Istanbul Airport (IST)')" style="width:80px;height:80px;">
-                            <img src="img/dest-istanbul.jpg" alt="Istanbul" style="width:80px;height:80px;object-fit:cover;border-radius:8px;">
+                        <div class="dest-img-wrap" onclick="openLightbox('img/dest-istanbul.jpg','Istanbul','Yogyakarta (YIA) → Istanbul Airport (IST)')" style="width:140px;height:105px;">
+                            <img src="img/dest-istanbul.jpg" alt="Istanbul" style="width:140px;height:105px;object-fit:cover;border-radius:8px;">
                         </div>
                     </div>
                 </div>
@@ -1186,8 +1188,8 @@
                         Jl.Dadapan, Kapanewon Temon, Kabupaten Kulon Progo, Daerah Istimewa Yogyakarta 55654, Indonesia (Yogyakarta International Airport)
                     </p>
                     <p class="mb-10 text-lg">
-                        <span class="block mb-2">Tel: <a href="tel:085893090080" class="hover:text-yellow-600 transition">085893090080</a></span>
-                        <span class="block">Email: <a href="mailto:booking@starduccairlines.com" class="hover:text-yellow-600 transition">booking@starduccairlines.com</a></span>
+                        <span class="block mb-2">Tel: <a href="tel:085893090080" class="hover:text-black-600 transition">085893090080</a></span>
+                        <span class="block">Email: <a href="mailto:fatihadhwa08@gmail.com" class="hover:text-yellow-600 transition">fatihadhwa08@gmail.com</a></span>
                     </p>
                     <div class="text-center">
                         <a href="https://maps.app.goo.gl/U388p8iL7cyD951x6" target="_blank" class="inline-block text-white text-2xl pl-10 pr-12 py-6 rounded-lg transition tm-bg-green" style="text-decoration:none;">
@@ -1217,7 +1219,7 @@
             <footer class="absolute bottom-0 left-0 w-full">
                 <div class="text-white container mx-auto tm-container p-8 text-lg flex flex-col md:flex-row justify-between">
                     <span>Copyright 2026 Starducc Airlines. All rights reserved.</span>
-                    <span class="mt-5 md:mt-0">Design: <a href="https://www.blog.agustik.com" target="_parent">Agustik[dot]com</a></span>
+                    <span class="mt-5 md:mt-0">Design: <a href="https://www.blog.agustik.com" target="_parent">cipung.com</a></span>
                 </div>
             </footer>
         </div>
